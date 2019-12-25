@@ -30,7 +30,7 @@ namespace GRSVR
         public const string RESTMNT = "<RESTMNT>";
         public int userId = -1;
 
-        public void Send(API_ID api_id, RES_STATE res, string json, string ex)
+        public void Send(API_ID api_id, RES_STATE res, string json, string exLog)
         {
             //Send
             string strMsg;
@@ -55,7 +55,7 @@ namespace GRSVR
             }
             else
             {
-                strEx = ex;
+                strEx = exLog;
                 level = E_LogLevel.Debug;
             }
             C_TabLog.Add(new C_Log(userId, api_id, level, strEx));
@@ -68,7 +68,7 @@ namespace GRSVR
 
         protected override void OnSessionStarted()
         {
-            this.Send(API_ID.Conn, RES_STATE.OK, null);
+            this.Send(API_ID.Conn, RES_STATE.OK, null, null);
         }
     }
 }

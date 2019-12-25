@@ -94,6 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Admin\AdminLogin.cs" />
+    <Compile Include="API\Admin\AdminResetPwd.cs" />
+    <Compile Include="API\User\Login.cs" />
     <Compile Include="GRServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,7 +117,6 @@
     <Folder Include="API\EntWellPara\" />
     <Folder Include="API\EntWell\" />
     <Folder Include="API\Log\" />
-    <Folder Include="API\User\" />
     <Folder Include="API\WellPara\" />
     <Folder Include="API\Well\" />
   </ItemGroup>
