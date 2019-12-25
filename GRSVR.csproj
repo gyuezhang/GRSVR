@@ -93,6 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Admin\AdminLogin.cs" />
     <Compile Include="GRServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,7 +110,6 @@
     <None Include="supersocket.sh" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="API\Admin\" />
     <Folder Include="API\AreaCode\" />
     <Folder Include="API\Dept\" />
     <Folder Include="API\EntWellPara\" />
