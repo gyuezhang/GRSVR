@@ -19,15 +19,15 @@ namespace GRSVR
             session.userId = 0;
 
             string pwd = JsonConvert.DeserializeObject<string>(string.Join("", requestInfo.Parameters));
-            Tuple<bool, string> loginRes = C_TabAdminPwd.Login(pwd);
+            Tuple<bool, string> dbRes = C_TabAdminPwd.Login(pwd);
 
-            if (loginRes.Item1)
+            if (dbRes.Item1)
             {
                 session.Send(API_ID.AdminLogin, RES_STATE.OK, null, null);
             }
             else
             {
-                session.Send(API_ID.AdminLogin, RES_STATE.FAILED, null, loginRes.Item2);
+                session.Send(API_ID.AdminLogin, RES_STATE.FAILED, null, dbRes.Item2);
             }
         }
     }
