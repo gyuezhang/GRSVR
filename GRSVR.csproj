@@ -95,7 +95,39 @@
   <ItemGroup>
     <Compile Include="API\Admin\AdminLogin.cs" />
     <Compile Include="API\Admin\AdminResetPwd.cs" />
+    <Compile Include="API\AreaCode\AddAreaCode.cs" />
+    <Compile Include="API\AreaCode\DelAreaCode.cs" />
+    <Compile Include="API\AreaCode\EdtAreaCode.cs" />
+    <Compile Include="API\AreaCode\GetAreaCodes.cs" />
+    <Compile Include="API\Dept\AddDept.cs" />
+    <Compile Include="API\Dept\DelDept.cs" />
+    <Compile Include="API\Dept\EdtDept.cs" />
+    <Compile Include="API\Dept\GetDepts.cs" />
+    <Compile Include="API\EntWellPara\AddEntWellPara.cs" />
+    <Compile Include="API\EntWellPara\DelEntWellPara.cs" />
+    <Compile Include="API\EntWellPara\EdtEntWellPara.cs" />
+    <Compile Include="API\EntWellPara\GetEntWellParas.cs" />
+    <Compile Include="API\EntWell\AddEntWell.cs" />
+    <Compile Include="API\EntWell\DelEntWell.cs" />
+    <Compile Include="API\EntWell\EdtEntWell.cs" />
+    <Compile Include="API\EntWell\GetEntWells.cs" />
+    <Compile Include="API\Log\AddLog.cs" />
+    <Compile Include="API\Log\DelLog.cs" />
+    <Compile Include="API\Log\GetLogs.cs" />
+    <Compile Include="API\User\AddUser.cs" />
+    <Compile Include="API\User\DelUser.cs" />
+    <Compile Include="API\User\EdtUser.cs" />
+    <Compile Include="API\User\GetUsers.cs" />
     <Compile Include="API\User\Login.cs" />
+    <Compile Include="API\User\ResetPwd.cs" />
+    <Compile Include="API\WellPara\AddWellPara.cs" />
+    <Compile Include="API\WellPara\DelWellPara.cs" />
+    <Compile Include="API\WellPara\EdtWellPara.cs" />
+    <Compile Include="API\WellPara\GetWellParas.cs" />
+    <Compile Include="API\Well\AddWell.cs" />
+    <Compile Include="API\Well\DelWell.cs" />
+    <Compile Include="API\Well\EdtWell.cs" />
+    <Compile Include="API\Well\GetWells.cs" />
     <Compile Include="GRServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -111,14 +143,6 @@
     <None Include="supersocket.cmd" />
     <None Include="supersocket.sh" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="API\AreaCode\" />
-    <Folder Include="API\Dept\" />
-    <Folder Include="API\EntWellPara\" />
-    <Folder Include="API\EntWell\" />
-    <Folder Include="API\Log\" />
-    <Folder Include="API\WellPara\" />
-    <Folder Include="API\Well\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
