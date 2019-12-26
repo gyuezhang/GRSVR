@@ -40,7 +40,7 @@
             // GRService安装包
             // 
             this.GRService安装包.Description = "宝坻区地下水资源信息管理系统服务器";
-            this.GRService安装包.ServiceName = "GRSVR";
+            this.GRService安装包.ServiceName = "宝坻区地下水资源信息管理系统服务器";
             this.GRService安装包.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller
