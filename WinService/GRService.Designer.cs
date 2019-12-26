@@ -1,6 +1,6 @@
 ﻿namespace WinService
 {
-    partial class Service1
+    partial class GRService
     {
         /// <summary> 
         /// 必需的设计器变量。

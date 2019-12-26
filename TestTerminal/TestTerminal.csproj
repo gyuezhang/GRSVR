@@ -72,6 +72,9 @@
     <None Include="packages.config" />
     <None Include="supersocket.cmd" />
     <None Include="supersocket.sh" />
+    <Content Include="TestTerminal.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GRSVR\GRSVR.csproj">
