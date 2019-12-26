@@ -26,7 +26,7 @@ namespace GRSVR
 
             if (C_TabUser.Login(loginInputs.Item1, loginInputs.Item2))
             {
-                session.Send(API_ID.Login, RES_STATE.OK, null, null);
+                session.Send(API_ID.Login, RES_STATE.OK, JsonConvert.SerializeObject(C_TabUser.GetUser(session.userId)), null);
             }
             else
             {
