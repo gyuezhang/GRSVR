@@ -56,7 +56,8 @@ namespace GRSVR
                 strEx = exLog;
                 level = E_LogLevel.Debug;
             }
-            C_TabLog.Add(new C_Log(userId, api_id, level, strEx));
+            if(userId>-1)
+                C_TabLog.Add(new C_Log(userId, api_id, level, strEx));
         }
 
         protected override void HandleUnknownRequest(StringRequestInfo requestInfo)
