@@ -22,7 +22,7 @@ namespace GRSVR
 
             if (dbRes.Item1)
             {
-                session.Send(API_ID.EdtUser, RES_STATE.OK, null, null);
+                session.Send(API_ID.EdtUser, RES_STATE.OK, JsonConvert.SerializeObject(C_TabUser.GetUser(session.userId).Item2), null);
             }
             else
             {
