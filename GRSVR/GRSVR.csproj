@@ -36,7 +36,7 @@
   <ItemGroup>
     <Reference Include="GRDB, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Build\Debug\GRDB.dll</HintPath>
+      <HintPath>..\..\GRDB\bin\Debug\GRDB.dll</HintPath>
     </Reference>
     <Reference Include="GRModel, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
