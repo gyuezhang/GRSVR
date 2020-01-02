@@ -22,8 +22,7 @@ namespace GRSVR
 
             if (dbRes.Item1)
             {
-                C_BdAreaCode bdAc = new C_BdAreaCode(dbRes.Item2);
-                session.Send(API_ID.GetAreaCodes, RES_STATE.OK, JsonConvert.SerializeObject(bdAc), null);
+                session.Send(API_ID.GetAreaCodes, RES_STATE.OK, JsonConvert.SerializeObject(dbRes.Item2), null);
             }
             else
             {
