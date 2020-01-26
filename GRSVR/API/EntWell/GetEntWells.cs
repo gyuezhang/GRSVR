@@ -1,7 +1,7 @@
 ﻿using SuperSocket.SocketBase.Command;
 using SuperSocket.SocketBase.Protocol;
 using Newtonsoft.Json;
-using GRDB;
+using GRDb;
 using System;
 using GRUtil;
 using GRModel;
@@ -24,11 +24,11 @@ namespace GRSVR
 
             if (dbRes.Item1)
             {
-                session.Send(API_ID.GetEntWells, RES_STATE.OK, JsonConvert.SerializeObject(dbRes.Item2), null);
+                session.Send(E_ApiId.GetEntWells, E_ResState.OK, JsonConvert.SerializeObject(dbRes.Item2), null);
             }
             else
             {
-                session.Send(API_ID.GetEntWells, RES_STATE.FAILED, null, dbRes.Item3);
+                session.Send(E_ApiId.GetEntWells, E_ResState.FAILED, null, dbRes.Item3);
             }
         }
     }
