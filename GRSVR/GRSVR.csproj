@@ -34,7 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GRDb">
+    <Reference Include="GRDb, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\GRPackage\Debug\GRDb.dll</HintPath>
     </Reference>
     <Reference Include="GRModel">
