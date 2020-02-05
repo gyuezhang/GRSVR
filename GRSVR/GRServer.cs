@@ -1,9 +1,9 @@
-﻿using GRUtil;
-using SuperSocket.SocketBase;
+﻿using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Config;
 using SuperSocket.SocketBase.Protocol;
 using System.Text;
 using GRModel;
+using GRUtil;
 using GRDb;
 
 namespace GRSVR
@@ -28,15 +28,15 @@ namespace GRSVR
         public const string RESTMNT = "<RESTMNT>";
         public int userId = -1;
 
-        public void Send(E_ApiId E_ApiId, E_ResState res, string json, string exLog)
+        public void Send(E_ApiId apiId, E_ResState res, string json, string exLog)
         {
             //Send
             string strMsg;
 
             if (json == null || json.Length == 0)
-                strMsg = E_ApiId.ToString() + " " + res.ToString();
+                strMsg = apiId.ToString() + " " + res.ToString();
             else
-                strMsg = E_ApiId.ToString() + " " + res.ToString() + " " + json;
+                strMsg = apiId.ToString() + " " + res.ToString() + " " + json;
             strMsg += RESTMNT;
             base.Send(strMsg);
 
@@ -56,8 +56,8 @@ namespace GRSVR
                 strEx = exLog;
                 level = E_LogLevel.Debug;
             }
-            if(userId>-1)
-                C_TabLog.Add(new C_Log(userId, E_ApiId, level, strEx));
+            if(userId>-1 && Comm.IsApiNeedLog(apiId))
+                C_TabLog.Add(new C_Log(userId, apiId, level, strEx));
         }
 
         protected override void HandleUnknownRequest(StringRequestInfo requestInfo)
