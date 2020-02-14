@@ -1,7 +1,7 @@
 ﻿using SuperSocket.SocketBase.Command;
 using SuperSocket.SocketBase.Protocol;
 using Newtonsoft.Json;
-using GRDB;
+using GRDb;
 using System;
 using GRUtil;
 using GRModel;
@@ -27,7 +27,7 @@ namespace GRSVR
             }
             else
             {
-                session.Send(API_ID.ResetPwd, RES_STATE.FAILED, null, "Can not find User by UserId " + session.userId.ToString());
+                session.Send(E_ApiId.ResetPwd, E_ResState.FAILED, null, "Can not find User by UserId " + session.userId.ToString());
                 return;
             }
 
@@ -38,13 +38,13 @@ namespace GRSVR
                 Tuple<bool, string> dbRes = C_TabUser.Edt(curUser);
 
                 if(dbRes.Item1)
-                    session.Send(API_ID.ResetPwd, RES_STATE.OK, null, null);
+                    session.Send(E_ApiId.ResetPwd, E_ResState.OK, null, null);
                 else 
-                    session.Send(API_ID.ResetPwd, RES_STATE.FAILED, null, dbRes.Item2);
+                    session.Send(E_ApiId.ResetPwd, E_ResState.FAILED, null, dbRes.Item2);
             }
             else
             {
-                session.Send(API_ID.ResetPwd, RES_STATE.FAILED, null, "OldPwd Error");
+                session.Send(E_ApiId.ResetPwd, E_ResState.FAILED, null, "OldPwd Error");
             }
         }
     }

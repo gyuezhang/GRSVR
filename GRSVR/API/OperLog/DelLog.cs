@@ -8,25 +8,25 @@ using GRModel;
 
 namespace GRSVR
 {
-    public class DelWellPara : CommandBase<GRSession, StringRequestInfo>
+    public class DelLog : CommandBase<GRSession, StringRequestInfo>
     {
         public override string Name
         {
-            get { return "DelWellPara"; }
+            get { return "DelLog"; }
         }
 
         public override void ExecuteCommand(GRSession session, StringRequestInfo requestInfo)
         {
-            C_WellPara wp = JsonConvert.DeserializeObject<C_WellPara>(string.Join("", requestInfo.Parameters));
-            Tuple<bool, string> dbRes = C_TabWellPara.Del(wp);
+            int id = JsonConvert.DeserializeObject<int>(string.Join("", requestInfo.Parameters));
+            Tuple<bool, string> dbRes = C_TabLog.Del(id);
 
             if (dbRes.Item1)
             {
-                session.Send(E_ApiId.DelWellPara, E_ResState.OK, null, null);
+                session.Send(E_ApiId.DelLog, E_ResState.OK, null, null);
             }
             else
             {
-                session.Send(E_ApiId.DelWellPara, E_ResState.FAILED, null, dbRes.Item2);
+                session.Send(E_ApiId.DelLog, E_ResState.FAILED, null, dbRes.Item2);
             }
         }
     }

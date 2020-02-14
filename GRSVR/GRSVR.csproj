@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Build\Debug\</OutputPath>
+    <OutputPath>..\..\GRPackage\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,23 +28,21 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Build\GRSVR\</OutputPath>
+    <OutputPath>..\..\GRPackage\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GRDB, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="GRDb, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GRDB\bin\Debug\GRDB.dll</HintPath>
+      <HintPath>..\..\GRPackage\Debug\GRDb.dll</HintPath>
     </Reference>
-    <Reference Include="GRModel, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Build\Debug\GRModel.dll</HintPath>
+    <Reference Include="GRModel">
+      <HintPath>..\..\GRPackage\Debug\GRModel.dll</HintPath>
     </Reference>
-    <Reference Include="GRUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Build\Debug\GRUtil.dll</HintPath>
+    <Reference Include="GRUtil">
+      <HintPath>..\..\GRPackage\Debug\GRUtil.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
@@ -104,6 +102,9 @@
   <ItemGroup>
     <Compile Include="API\Admin\AdminLogin.cs" />
     <Compile Include="API\Admin\AdminResetPwd.cs" />
+    <Compile Include="API\Anm\AddAnm.cs" />
+    <Compile Include="API\Anm\DelAnm.cs" />
+    <Compile Include="API\Anm\GetAnms.cs" />
     <Compile Include="API\AreaCode\AddAreaCode.cs" />
     <Compile Include="API\AreaCode\DelAreaCode.cs" />
     <Compile Include="API\AreaCode\EdtAreaCode.cs" />
@@ -120,9 +121,9 @@
     <Compile Include="API\EntWell\DelEntWell.cs" />
     <Compile Include="API\EntWell\EdtEntWell.cs" />
     <Compile Include="API\EntWell\GetEntWells.cs" />
-    <Compile Include="API\Log\AddLog.cs" />
-    <Compile Include="API\Log\DelLog.cs" />
-    <Compile Include="API\Log\GetLogs.cs" />
+    <Compile Include="API\OperLog\AddLog.cs" />
+    <Compile Include="API\OperLog\DelLog.cs" />
+    <Compile Include="API\OperLog\GetLogs.cs" />
     <Compile Include="API\User\AddUser.cs" />
     <Compile Include="API\User\DelUser.cs" />
     <Compile Include="API\User\EdtUser.cs" />

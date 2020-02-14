@@ -1,7 +1,7 @@
 ﻿using SuperSocket.SocketBase.Command;
 using SuperSocket.SocketBase.Protocol;
 using Newtonsoft.Json;
-using GRDB;
+using GRDb;
 using System;
 using GRUtil;
 using GRModel;
@@ -18,17 +18,17 @@ namespace GRSVR
 
         public override void ExecuteCommand(GRSession session, StringRequestInfo requestInfo)
         {
-            string filter = JsonConvert.DeserializeObject<string>(string.Join("", requestInfo.Parameters));
+            C_SearchCondition filter = JsonConvert.DeserializeObject<C_SearchCondition>(string.Join("", requestInfo.Parameters));
 
             Tuple<bool, List<C_Well>, string> dbRes = C_TabWell.Get(filter);
 
             if (dbRes.Item1)
             {
-                session.Send(API_ID.GetWells, RES_STATE.OK, JsonConvert.SerializeObject(dbRes.Item2), null);
+                session.Send(E_ApiId.GetWells, E_ResState.OK, JsonConvert.SerializeObject(dbRes.Item2), null);
             }
             else
             {
-                session.Send(API_ID.GetWells, RES_STATE.FAILED, null, dbRes.Item3);
+                session.Send(E_ApiId.GetWells, E_ResState.FAILED, null, dbRes.Item3);
             }
         }
     }

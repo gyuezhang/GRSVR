@@ -5,28 +5,28 @@ using GRDb;
 using System;
 using GRUtil;
 using GRModel;
+using System.Collections.Generic;
 
 namespace GRSVR
 {
-    public class DelWellPara : CommandBase<GRSession, StringRequestInfo>
+    public class GetLogs : CommandBase<GRSession, StringRequestInfo>
     {
         public override string Name
         {
-            get { return "DelWellPara"; }
+            get { return "GetLogs"; }
         }
 
         public override void ExecuteCommand(GRSession session, StringRequestInfo requestInfo)
         {
-            C_WellPara wp = JsonConvert.DeserializeObject<C_WellPara>(string.Join("", requestInfo.Parameters));
-            Tuple<bool, string> dbRes = C_TabWellPara.Del(wp);
+            Tuple<bool, List<C_Log>, string> dbRes = C_TabLog.Get();
 
             if (dbRes.Item1)
             {
-                session.Send(E_ApiId.DelWellPara, E_ResState.OK, null, null);
+                session.Send(E_ApiId.GetLogs, E_ResState.OK, JsonConvert.SerializeObject(dbRes.Item2), null);
             }
             else
             {
-                session.Send(E_ApiId.DelWellPara, E_ResState.FAILED, null, dbRes.Item2);
+                session.Send(E_ApiId.GetLogs, E_ResState.FAILED, null, dbRes.Item3);
             }
         }
     }

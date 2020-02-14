@@ -1,10 +1,10 @@
-﻿using GRUtil;
-using SuperSocket.SocketBase;
+﻿using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Config;
 using SuperSocket.SocketBase.Protocol;
 using System.Text;
 using GRModel;
-using GRDB;
+using GRUtil;
+using GRDb;
 
 namespace GRSVR
 {
@@ -28,22 +28,22 @@ namespace GRSVR
         public const string RESTMNT = "<RESTMNT>";
         public int userId = -1;
 
-        public void Send(API_ID api_id, RES_STATE res, string json, string exLog)
+        public void Send(E_ApiId apiId, E_ResState res, string json, string exLog)
         {
             //Send
             string strMsg;
 
             if (json == null || json.Length == 0)
-                strMsg = api_id.ToString() + " " + res.ToString();
+                strMsg = apiId.ToString() + " " + res.ToString();
             else
-                strMsg = api_id.ToString() + " " + res.ToString() + " " + json;
+                strMsg = apiId.ToString() + " " + res.ToString() + " " + json;
             strMsg += RESTMNT;
             base.Send(strMsg);
 
             //Log
             string strEx; E_LogLevel level;
 
-            if (res == RES_STATE.OK)
+            if (res == E_ResState.OK)
             {
                 strEx = "Success";
                 if (userId == 0)
@@ -56,8 +56,8 @@ namespace GRSVR
                 strEx = exLog;
                 level = E_LogLevel.Debug;
             }
-            if(userId>-1)
-                C_TabLog.Add(new C_Log(userId, api_id, level, strEx));
+            if(userId>-1 && Comm.IsApiNeedLog(apiId))
+                C_TabLog.Add(new C_Log(userId, apiId, level, strEx));
         }
 
         protected override void HandleUnknownRequest(StringRequestInfo requestInfo)
@@ -67,7 +67,7 @@ namespace GRSVR
 
         protected override void OnSessionStarted()
         {
-            this.Send(API_ID.Conn, RES_STATE.OK, null, null);
+            this.Send(E_ApiId.Conn, E_ResState.OK, null, null);
         }
     }
 }
