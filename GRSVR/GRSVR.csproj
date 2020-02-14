@@ -102,6 +102,9 @@
   <ItemGroup>
     <Compile Include="API\Admin\AdminLogin.cs" />
     <Compile Include="API\Admin\AdminResetPwd.cs" />
+    <Compile Include="API\Anm\AddAnm.cs" />
+    <Compile Include="API\Anm\DelAnm.cs" />
+    <Compile Include="API\Anm\GetAnms.cs" />
     <Compile Include="API\AreaCode\AddAreaCode.cs" />
     <Compile Include="API\AreaCode\DelAreaCode.cs" />
     <Compile Include="API\AreaCode\EdtAreaCode.cs" />
